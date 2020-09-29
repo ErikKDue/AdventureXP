@@ -17,9 +17,11 @@ public class CRUD {
         aktiviteter.add(activity);
     }
 
-    public void read()
+    public ArrayList read()
     {
-        for(int i = 0; i < aktiviteter.size(); i++)
+        return aktiviteter;
+        //Erik: Det virker  fjollet at have vores basale read-metode til at fremvise resultatet til brugeren. Det er et UI-ansvar.
+       /* for(int i = 0; i < aktiviteter.size(); i++)
         {
             //bruger sout til at printe information om aktiviteten i konsollen
             System.out.println("");
@@ -32,7 +34,7 @@ public class CRUD {
             }
             System.out.println("");
             //print beskrivelsen
-        }
+        }*/
     }
 
     public void delete(int i)

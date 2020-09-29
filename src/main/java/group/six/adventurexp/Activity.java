@@ -40,7 +40,7 @@ public class Activity {
     }
 
     void setRestriction(String input){
-        restriction = input;
+        this.restriction = input;
     }
     String getRestriction(){
         return restriction;

@@ -1,6 +1,7 @@
 package group.six.adventurexp;
 
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UI {
@@ -54,7 +55,21 @@ public class UI {
             switch (scannerInput) {
                 case "1":
                     System.out.println("Vis");
-                    crud.read();
+                    ArrayList<Activity> aktiviteter = crud.read();
+                    for(int i = 0; i < aktiviteter.size(); i++)
+                    {
+                        //bruger sout til at printe information om aktiviteten i konsollen
+                        System.out.println("");
+                        System.out.println("Aktivitet: " + aktiviteter.get(i).getName());
+                        //print titlen og prisen
+                        System.out.println("Pris pr person " + aktiviteter.get(i).getPrice() +"dkk");
+                        System.out.println(aktiviteter.get(i).getDescription());
+                        if (aktiviteter.get(i).getRestriction() != null && !aktiviteter.get(i).getRestriction().equals("")) {
+                            System.out.println("BEMÆRK \n" + aktiviteter.get(i).getRestriction());
+                        }
+                        System.out.println("");
+                        //print beskrivelsen
+                    }
                     break;
                 case "2":
                     System.out.println("create");
@@ -75,11 +90,53 @@ public class UI {
                 case "3":
                     System.out.println("edit");
 
+                    ArrayList<Activity> readAktiviteter = crud.read();
+                    for(int i = 0; i < readAktiviteter.size(); i++)
+                    {
+                        System.out.println("Aktivitet " + i +": " + readAktiviteter.get(i).getName());
+                    }
                     //for each print i+activity.name
                     //select by number
-                    //while boolean stillEditing
-                    //print all attributes
-                    //print list of attributes
+                    System.out.println("Please enter the number of the activity you wish to edit");
+
+                    int selection = sc.nextInt();
+                    boolean stillEditing = true;
+                    Activity tempActivity = readAktiviteter.get(selection);
+                    while (stillEditing){
+                        System.out.println("1: " +tempActivity.getName());
+                        System.out.println("2: "+tempActivity.getPrice());
+                        System.out.println("3: "+tempActivity.getDescription());
+                        System.out.println("4: "+tempActivity.getRestriction());
+                        System.out.println("0: Done editing");
+                        System.out.println("");
+                        System.out.println("Please enter the number of the attribute you wish to edit");
+                        int attSelect = sc.nextInt();
+                        sc.nextLine(); //Må IKKE fjernes. nextInt() placerer scannerens cursor bag ved inten, så første gang man ber om nextLine
+                        // efter nextInt får man bare \n, (med mindre linjen var noget i retning af "5 ord")
+
+
+                        switch (attSelect) {
+                            case 1:
+                                System.out.println("Enter new name");
+                                tempActivity.setName(sc.nextLine());
+                                break;
+                            case 2:
+                                System.out.println("Enter new price (commas for decimal)");
+                                tempActivity.setPrice(sc.nextDouble());
+                                break;
+                            case 3:
+                                System.out.println("Enter new description");
+                                tempActivity.setDescription(sc.nextLine());
+                                break;
+                            case 4:
+                                System.out.println("Enter new restrictions");
+                                tempActivity.setRestriction(sc.nextLine());
+                                break;
+                            case 0:
+                                stillEditing = false;
+                                break;
+                        }
+                    }
 
                     break;
                 case "4":
