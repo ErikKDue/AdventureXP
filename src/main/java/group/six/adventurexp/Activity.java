@@ -38,6 +38,7 @@ public class Activity {
 
     void display(){
         //bruger sout til at printe information om aktiviteten i konsollen
+        System.out.println("");
         System.out.println("Aktivitet: " + name);
         //print titlen og prisen
         System.out.println("Pris pr person " + price +"dkk");
@@ -45,6 +46,7 @@ public class Activity {
         if (restriction != null && !restriction.equals("")) {
             System.out.println("BEMÆRK \n" + restriction);
         }
+        System.out.println("");
         //print beskrivelsen
     }
 }

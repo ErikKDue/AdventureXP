@@ -25,31 +25,27 @@ public class BrugerUI {
         System.out.println("Velkommen til Adventure XP! (slogan her)");
         System.out.println("Tast 1 for intern bruger eller 0 for ekstern bruger");
 
+        while (true) {
 
-        if (scan.hasNext("1")) {
-            System.out.println("Ansat");
-            //Arraylist ind her
+            if (scan.hasNext("1")) {
+                System.out.println("Ansat");
+                //Arraylist ind her
 
 
+                scan.nextLine();
+            } else if (scan.hasNext("0")) {
+                System.out.println("Aktiviteter:");
+                //Arraylist ind her
+                for (int i = 0; i < aktiviteter.size(); i++) {
+                    aktiviteter.get(i).display();
+                    //System.out.println(aktiviteter.get(i).getName());
+                }
 
-            scan.nextLine();
-        }
-        else if (scan.hasNext("0")){
-            System.out.println("Aktiviteter:");
-            //Arraylist ind her
-            for(int i = 0; i < aktiviteter.size(); i++)
-            {
-                aktiviteter.get(i).display();
-                //System.out.println(aktiviteter.get(i).getName());
+                scan.nextLine();
+            } else {
+                System.out.println("Ugyldigt input; prøv igen.");
             }
-
-            scan.nextLine();
         }
-
-        else{
-            System.out.println("Ugyldigt input; prøv igen.");
-        }
-
 
 
 
