@@ -12,10 +12,10 @@ public class BrugerUI {
         // write your code here
 
 
-        ArrayList<Aktivitet> aktiviteter = new  ArrayList<>(Arrays.asList(
-                new Aktivitet(500, "GoKart", "Kør rundt på vores fede GoKart bane, i vores super hurtige og sjove GoKarts!", "Du skal være 16 år gammel, og mindst 1,50m høj"),
-                new Aktivitet(750, "Paint Ball", "Skyd dine venner i fjæset med maling", "Du skal være 18 år gammel, der er ingen højde begrænsning"),
-                new Aktivitet(300, "Mini Golf", "Bliv frustreret over dine dårlige evner til at spille mini golf, og lad dine aggresioner gå ud over din familie", "Der er ingen krav")
+        ArrayList<Activity> aktiviteter = new  ArrayList<>(Arrays.asList(
+                new Activity("GoKart",500, "Kør rundt på vores fede GoKart bane, i vores super hurtige og sjove GoKarts!", "Du skal være 16 år gammel, og mindst 1,50m høj"),
+                new Activity("Paint Ball", 750, "Skyd dine venner i fjæset med maling", "Du skal være 18 år gammel, der er ingen højde begrænsning"),
+                new Activity("Mini Golf", 900, "Bliv frustreret over dine dårlige evner til at spille mini golf, og lad dine aggresioner gå ud over din familie", "Der er ingen krav")
         ));
 
 
@@ -32,11 +32,12 @@ public class BrugerUI {
             scan.nextLine();
         }
         if (scan.hasNext("0")){
-            System.out.println("Aktiviteter");
+            System.out.println("Aktiviteter:");
             //Arraylist ind her
             for(int i = 0; i < aktiviteter.size(); i++)
             {
-                System.out.println(aktiviteter.get(i).toString());
+                aktiviteter.get(i).display();
+                //System.out.println(aktiviteter.get(i).getName());
             }
 
             scan.nextLine();
