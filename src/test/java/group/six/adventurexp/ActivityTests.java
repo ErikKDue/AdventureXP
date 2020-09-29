@@ -26,6 +26,8 @@ public class ActivityTests {
     void ConsoleDisplayTest(){
         Activity deathMatch = testActivitySetup();
         deathMatch.display();
+        deathMatch.setRestriction("");
+        deathMatch.display();
         //testing console output looks fucking complicated holy shit
     }
 }

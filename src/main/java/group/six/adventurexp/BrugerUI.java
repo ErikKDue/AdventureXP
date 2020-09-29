@@ -22,6 +22,9 @@ public class BrugerUI {
 
 
         Scanner scan = new Scanner(System.in);
+        System.out.println("Velkommen til Adventure XP! (slogan her)");
+        System.out.println("Tast 1 for intern bruger eller 0 for ekstern bruger");
+
 
         if (scan.hasNext("1")) {
             System.out.println("Ansat");
@@ -31,7 +34,7 @@ public class BrugerUI {
 
             scan.nextLine();
         }
-        if (scan.hasNext("0")){
+        else if (scan.hasNext("0")){
             System.out.println("Aktiviteter:");
             //Arraylist ind her
             for(int i = 0; i < aktiviteter.size(); i++)
@@ -41,6 +44,10 @@ public class BrugerUI {
             }
 
             scan.nextLine();
+        }
+
+        else{
+            System.out.println("Ugyldigt input; prøv igen.");
         }
 
 

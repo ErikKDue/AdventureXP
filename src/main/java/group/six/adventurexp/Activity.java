@@ -26,6 +26,10 @@ public class Activity {
     String getDescription(){
         return description;
     }
+
+    void setRestriction(String input){
+        restriction = input;
+    }
     String getRestriction(){
         return restriction;
     }
@@ -38,7 +42,9 @@ public class Activity {
         //print titlen og prisen
         System.out.println("Pris pr person " + price +"dkk");
         System.out.println(description);
-        System.out.println("NOTICE \n" + restriction);
+        if (restriction != null && !restriction.equals("")) {
+            System.out.println("BEMÆRK \n" + restriction);
+        }
         //print beskrivelsen
     }
 }
