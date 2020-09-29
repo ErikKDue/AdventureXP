@@ -41,6 +41,7 @@ public class BrugerUI {
                 scan.nextLine();
             } else {
                 System.out.println("Ugyldigt input; prøv igen.");
+                scan.nextLine();
             }
         }
 
