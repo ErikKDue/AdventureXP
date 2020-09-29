@@ -31,5 +31,10 @@ public class CRUD {
 
     }
 
+    public void read()
+    {
+
+    }
+
 
 }
