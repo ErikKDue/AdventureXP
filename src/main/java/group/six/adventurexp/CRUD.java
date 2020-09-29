@@ -35,6 +35,11 @@ public class CRUD {
         }
     }
 
+    public void delete(int i)
+    {
+        aktiviteter.remove(i);
+    }
+
 
 
 

@@ -15,6 +15,18 @@ public class Activity {
         this.restriction = restriction;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     String getName(){
         return name;
     }

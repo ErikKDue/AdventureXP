@@ -47,9 +47,11 @@ public class UI {
                     break;
                 case "3":
                     System.out.println("edit");
+
                     break;
                 case "4":
                     System.out.println("delete");
+                    crud.delete(sc.nextInt());
                     break;
                 case "0":
                     System.exit(0);
