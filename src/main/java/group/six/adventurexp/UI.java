@@ -38,15 +38,27 @@ public class UI {
                 case "2":
                     System.out.println("create");
                     Scanner scanner = new Scanner(System.in);
+                    System.out.println("Enter name");
                     String name = scanner.nextLine();
-                    double price = scanner.nextDouble();
+                    System.out.println("Enter description");
                     String description = scanner.nextLine();
+                    System.out.println("enter restriction(s)");
                     String restriction = scanner.nextLine();
+                    System.out.println("Enter price");
+                    double price = scanner.nextDouble();
+                   // String description = scanner.nextLine();
+                    System.out.println(name + price + description +restriction);
                     Activity activity = new Activity(name, price, description, restriction);
                     crud.create(activity);
                     break;
                 case "3":
                     System.out.println("edit");
+
+                    //for each print i+activity.name
+                    //select by number
+                    //while boolean stillEditing
+                    //print all attributes
+                    //print list of attributes
 
                     break;
                 case "4":
