@@ -22,6 +22,7 @@ public class UI {
     public void EmployeeUI() {
         Logo();
         Scanner sc = new Scanner(System.in);
+        CRUD crud = new CRUD();
 
         while(true) {
             System.out.println("You have the following options:");
@@ -32,9 +33,13 @@ public class UI {
             switch (scannerInput) {
                 case "1":
                     System.out.println("Vis");
+                    crud.read();
                     break;
                 case "2":
                     System.out.println("create");
+                    Scanner scanner = new Scanner(System.in);
+                    Activity activity = new Activity(scanner.nextLine(), scanner.nextDouble(), scanner.nextLine(), scanner.nextLine());
+                    crud.create(activity);
                     break;
                 case "3":
                     System.out.println("edit");

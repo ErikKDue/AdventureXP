@@ -12,31 +12,9 @@ public class CRUD {
             new Activity("Mini Golf", 900, "Bliv frustreret over dine dårlige evner til at spille mini golf, og lad dine aggresioner gå ud over din familie", "Der er ingen krav")
     ));
 
-    public Activity Create()
+    public void create(Activity activity)
     {
-        double price;
-        String name;
-        String description;
-        String restrictions;
-
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Skriv pris");
-        price = scanner.nextDouble();
-
-        System.out.println("Skriv navn");
-        name = scanner.nextLine();
-
-        System.out.println("Skriv beskrivelse");
-        description = scanner.nextLine();
-
-        System.out.println("Skriv krav");
-        restrictions = scanner.nextLine();
-
-        Activity act = new Activity(name, price, description, restrictions);
-
-        return act;
-
+        aktiviteter.add(activity);
     }
 
     public void read()
