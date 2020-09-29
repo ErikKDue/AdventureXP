@@ -38,7 +38,11 @@ public class UI {
                 case "2":
                     System.out.println("create");
                     Scanner scanner = new Scanner(System.in);
-                    Activity activity = new Activity(scanner.nextLine(), scanner.nextDouble(), scanner.nextLine(), scanner.nextLine());
+                    String name = scanner.nextLine();
+                    double price = scanner.nextDouble();
+                    String description = scanner.nextLine();
+                    String restriction = scanner.nextLine();
+                    Activity activity = new Activity(name, price, description, restriction);
                     crud.create(activity);
                     break;
                 case "3":
