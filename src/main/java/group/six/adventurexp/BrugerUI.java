@@ -11,7 +11,7 @@ public class BrugerUI {
     public static void main(String[] args) {
         // write your code here
         CRUD crud = new CRUD();
-
+        UI ui = new UI();
 
         Scanner scan = new Scanner(System.in);
         System.out.println("Velkommen til Adventure XP! (slogan her)");
@@ -21,13 +21,12 @@ public class BrugerUI {
 
             if (scan.hasNext("1")) {
                 //System.out.println("Ansat");
-                UI ui = new UI();
+
                 ui.EmployeeUI();
 
                 scan.nextLine();
             } else if (scan.hasNext("0")) {
-
-                crud.read();
+                ui.EmployeeUI();
 
 
                 scan.nextLine();
