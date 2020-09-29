@@ -26,14 +26,16 @@ public class BrugerUI {
         while (true) {
 
             if (scan.hasNext("1")) {
-                System.out.println("Ansat");
+                //System.out.println("Ansat");
                 UI ui = new UI();
                 ui.EmployeeUI();
-
 
                 scan.nextLine();
             } else if (scan.hasNext("0")) {
 
+                for (int i = 0; i < aktiviteter.size(); i++) {
+                    aktiviteter.get(i).display();
+                }
 
 
                 scan.nextLine();
