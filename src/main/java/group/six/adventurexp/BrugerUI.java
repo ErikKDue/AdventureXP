@@ -14,8 +14,8 @@ public class BrugerUI {
         UI ui = new UI();
 
         Scanner scan = new Scanner(System.in);
-        System.out.println("Velkommen til Adventure XP! (slogan her)");
-        System.out.println("Tast 1 for intern bruger eller 0 for ekstern bruger");
+        ui.Logo();
+        System.out.println("Tast 1 for Employee eller 0 for Customer");
 
         while (true) {
 
@@ -26,7 +26,7 @@ public class BrugerUI {
 
                 scan.nextLine();
             } else if (scan.hasNext("0")) {
-                ui.EmployeeUI();
+                ui.customerUI();
 
 
                 scan.nextLine();

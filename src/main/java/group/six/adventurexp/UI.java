@@ -19,8 +19,29 @@ public class UI {
                 " \\_______/ \\_______/    \\_/    \\_______/|__/  |__/   \\___/   \\______/ |__/       \\_______/      |__/ \\_______/|__/  |__/ \\_______/\n");
     }
 
+    public void customerUI() {
+    Scanner sc = new Scanner(System.in);
+    CRUD crud = new CRUD();
+
+        while(true) {
+            System.out.println("You have the following options:");
+            System.out.println("1. Show Activities | 0.Exit Application");
+
+            String scannerInput = sc.next();
+
+            switch (scannerInput) {
+                case "1":
+                    System.out.println("Vis");
+                    crud.read();
+                    break;
+                case "0":
+                    System.exit(0);
+                    break;
+            }
+        }
+    }
+
     public void EmployeeUI() {
-        Logo();
         Scanner sc = new Scanner(System.in);
         CRUD crud = new CRUD();
 
