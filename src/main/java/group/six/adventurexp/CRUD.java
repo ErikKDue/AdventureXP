@@ -37,7 +37,7 @@ public class CRUD {
 
     public void delete(int i)
     {
-        aktiviteter.remove(i);
+        aktiviteter.remove(i - 1);
     }
 
 
