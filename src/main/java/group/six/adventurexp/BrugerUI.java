@@ -27,17 +27,14 @@ public class BrugerUI {
 
             if (scan.hasNext("1")) {
                 System.out.println("Ansat");
-                //Arraylist ind her
+                UI ui = new UI();
+                ui.EmployeeUI();
 
 
                 scan.nextLine();
             } else if (scan.hasNext("0")) {
-                System.out.println("Aktiviteter:");
-                //Arraylist ind her
-                for (int i = 0; i < aktiviteter.size(); i++) {
-                    aktiviteter.get(i).display();
-                    //System.out.println(aktiviteter.get(i).getName());
-                }
+
+
 
                 scan.nextLine();
             } else {
@@ -45,10 +42,6 @@ public class BrugerUI {
             }
         }
 
-
-
     }
-
-
 
 }

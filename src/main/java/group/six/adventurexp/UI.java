@@ -21,9 +21,12 @@ public class UI {
     public void EmployeeUI() {
         Logo();
         Scanner sc = new Scanner(System.in);
-        String scannerInput = sc.next();
+
         System.out.println("You have the following options:");
         System.out.println("1. Show Activities | 2. Create Activity | 3.Edit Activities | 4.Delete Activities");
+
+        String scannerInput = sc.next();
+
         switch (scannerInput){
             case "1":
                 break;
