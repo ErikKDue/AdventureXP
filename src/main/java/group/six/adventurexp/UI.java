@@ -33,7 +33,22 @@ public class UI {
             switch (scannerInput) {
                 case "1":
                     System.out.println("Vis");
-                    crud.read();
+
+                    ArrayList<Activity> aktiviteter = crud.read();
+                    for(int i = 0; i < aktiviteter.size(); i++)
+                    {
+                        //bruger sout til at printe information om aktiviteten i konsollen
+                        System.out.println("");
+                        System.out.println("Aktivitet: " + aktiviteter.get(i).getName());
+                        //print titlen og prisen
+                        System.out.println("Pris pr person " + aktiviteter.get(i).getPrice() +"dkk");
+                        System.out.println(aktiviteter.get(i).getDescription());
+                        if (aktiviteter.get(i).getRestriction() != null && !aktiviteter.get(i).getRestriction().equals("")) {
+                            System.out.println("BEMÆRK \n" + aktiviteter.get(i).getRestriction());
+                        }
+                        System.out.println("");
+                        //print beskrivelsen
+                    }
                     break;
                 case "0":
                     System.exit(0);
