@@ -1,11 +1,12 @@
-package group.six.adventurexp;
+package group.six.adventurexp.legacy;
+
+import group.six.adventurexp.models.Activity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class CRUD {
-
+/*
     ArrayList<Activity> aktiviteter = new  ArrayList<>(Arrays.asList(
             new Activity("GoKart",500, "Kør rundt på vores fede GoKart bane, i vores super hurtige og sjove GoKarts!", "Du skal være 16 år gammel, og mindst 1,50m høj"),
             new Activity("Paint Ball", 750, "Skyd dine venner i fjæset med maling", "Du skal være 18 år gammel, der er ingen højde begrænsning"),
@@ -35,7 +36,7 @@ public class CRUD {
             System.out.println("");
             //print beskrivelsen
         }*/
-    }
+/*    }
 
     public void delete(int i)
     {
@@ -45,4 +46,4 @@ public class CRUD {
 
 
 
-}
+*/}

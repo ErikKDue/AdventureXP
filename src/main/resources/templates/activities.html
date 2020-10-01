@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css.css">
+    <title>Activities</title>
+</head>
+<body>
+<div th:replace="fragments/nav.html :: navigation"></div>
+
+<table>
+    <tr>
+        <th>Aktivitet:</th>
+        <th>Pris:</th>
+        <th>Beskrivelse:</th>
+        <th>Krav:</th>
+    </tr>
+
+    <tr th:each="activity : ${activities}">
+        <td th:text="${activity.name}"></td>
+        <td th:text="${activity.price}"></td>
+        <td th:text="${activity.description}"></td>
+        <td th:text="${activity.restriction}"></td>
+        <td>
+            <a th:href="@{/edit(id=${activity.id})}"><button>Edit</button></a>
+            <a th:href="@{/delete(id=${activity.id})}"><button>Delete</button></a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

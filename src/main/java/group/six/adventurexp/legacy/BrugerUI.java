@@ -1,13 +1,10 @@
+/*
 package group.six.adventurexp;
+import group.six.adventurexp.legacy.CRUD;
 
-import group.six.adventurexp.martin.Aktivitet;
-import org.springframework.boot.SpringApplication;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
-public class BrugerUI {
+ public class BrugerUI {
     public static void main(String[] args) {
         // write your code here
         CRUD crud = new CRUD();
@@ -37,5 +34,4 @@ public class BrugerUI {
         }
 
     }
-
-}
+} */

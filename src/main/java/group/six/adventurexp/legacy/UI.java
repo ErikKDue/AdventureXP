@@ -1,5 +1,8 @@
+/*
 package group.six.adventurexp;
 
+
+import group.six.adventurexp.models.Activity;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -166,4 +169,4 @@ public class UI {
         }
     }
 }
-
+*/

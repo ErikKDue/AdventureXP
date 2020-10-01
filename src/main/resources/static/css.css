@@ -1,0 +1,29 @@
+#navbar{
+    background-color: black;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    margin-bottom: 10px;
+}
+#navbar li{
+    display: inline-block;
+}
+
+#navbar a {
+    color: white;
+    font-size: 24px;
+    padding-right: 8px;
+    text-decoration: none;
+}
+
+#navlogin {
+    float: right;
+    padding-right: 15px;
+}
+
+body {
+    padding-top: 70px;
+}
