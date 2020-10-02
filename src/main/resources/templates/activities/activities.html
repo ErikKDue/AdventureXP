@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="/css.css">
+    <link rel="stylesheet" type="text/css" href="css.css">
     <title>Activities</title>
 </head>
 <body>
@@ -17,15 +17,17 @@
     </tr>
 
     <tr th:each="activity : ${activities}">
+        <td th:text="${activity.id}"></td>
         <td th:text="${activity.name}"></td>
         <td th:text="${activity.price}"></td>
         <td th:text="${activity.description}"></td>
         <td th:text="${activity.restriction}"></td>
         <td>
-            <a th:href="@{/edit(id=${activity.id})}"><button>Edit</button></a>
-            <a th:href="@{/delete(id=${activity.id})}"><button>Delete</button></a>
+            <a th:href="@{/editActivity(id=${activity.id})}"><button>Edit</button></a>
+            <a th:href="@{/deleteActivity(id=${activity.id})}"><button>Delete</button></a>
         </td>
     </tr>
 </table>
+<a href="/activities/createActivity"><button>Create New Activity</button></a>
 </body>
 </html>

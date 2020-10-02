@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HomeController {
 
-    private IActivityRepository activityRepository;
-
-    public HomeController(){activityRepository = new InMemoryActivityRepository();}
+    public HomeController(){}
 
     @GetMapping("/")
     public String home(){return "index";}
@@ -20,8 +18,4 @@ public class HomeController {
     @GetMapping("/booking")
     public String booking(){return "booking";}
 
-    @GetMapping("/activities")
-    public String activities(Model model){
-         model.addAttribute("activities", activityRepository.readAll());
-        return "activities";}
 }

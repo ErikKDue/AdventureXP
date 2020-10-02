@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <title>Edit Activity</title>
+</head>
+<body>
+<div th:replace="fragments/nav.html :: navigation"></div>
+
+<h1>Edit Activity</h1>
+
+<form action="/updateActivity" method="post">
+    <input type="hidden" th:value="${activity.id}" name="id" >
+    <p>Name:</p>
+    <input type="text" th:value="${activity.name}" name="name" >
+    <p>Price:</p>
+    <input type="text" th:value="${activity.price}" name="price">
+    <p>Description:</p>
+    <input type="text" th:value="${activity.description}" name="description">
+    <p>Restriction:</p>
+    <input type="text" th:value="${activity.restriction}" name="restriction">
+    <input type="submit" value="Update" name="activity">
+</form>
+</body>
+</html>
