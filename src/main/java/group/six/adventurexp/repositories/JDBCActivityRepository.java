@@ -24,7 +24,8 @@ public class JDBCActivityRepository implements IActivityRepository {
         int rowsAffected =0;
         try {
             Connection connection = DBManager.getConnection();
-            String sql = "INSERT INTO activity values( ?, ?, ?, ?)";
+            //String sql = "INSERT INTO activity values( ?, ?, ?, ?)";
+            String sql = "INSERT INTO activity (name, price, description, restriction) values( ?, ?, ?, ?)";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, newItem.getName());
             statement.setDouble(2, newItem.getPrice());
@@ -47,9 +48,35 @@ public class JDBCActivityRepository implements IActivityRepository {
 
         try {
             Connection connection = DBManager.getConnection();
-            String sql = "SELECT * FROM activity WHERE id =?";
+            String sql = "SELECT * FROM activity WHERE activity_id =?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, ID);
+
+            ResultSet rs = statement.executeQuery();
+
+            if (rs.next()){ //skal være i rigtig rækkefølge?
+                int id = rs.getInt("activity_id");
+                String name = rs.getString("name");
+                double price = rs.getDouble("price");
+                String description = rs.getString("description");
+                String restriction = rs.getString("restriction");
+                return new Activity(id, name, price, description, restriction);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+    public Activity readByName(String inpName) {
+
+        try {
+            Connection connection = DBManager.getConnection();
+            String sql = "SELECT * FROM activity WHERE name =?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, inpName);
 
             ResultSet rs = statement.executeQuery();
 
@@ -143,7 +170,7 @@ public class JDBCActivityRepository implements IActivityRepository {
         int rowsAffected =0;
         try {
             Connection connection = DBManager.getConnection();
-            String sql = "DELETE FROM activity WHERE id=?";
+            String sql = "DELETE FROM activity WHERE activity_id=?";
             PreparedStatement statement = connection.prepareStatement(sql);
 
             statement.setInt(1, id);
