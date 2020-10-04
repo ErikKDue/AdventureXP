@@ -42,12 +42,10 @@ public class BookingController {
         Date date = new SimpleDateFormat("yyyy-MM-dd").parse(param2);
         int participants = Integer.parseInt(request.getParameter("participants"));
         int timeOfDay = Integer.parseInt(request.getParameter("time"));
-        String telephoneNumber = request.getParameter("telefone");
+        String telephoneNumber = request.getParameter("telephone");
 
         Booking booking = new Booking(activities.get(activityid), date, participants, timeOfDay, telephoneNumber);
         bookings.add(booking);
-
-        System.out.println(timeOfDay);
 
         for (int i = 0; i < bookings.size(); i++)
         {

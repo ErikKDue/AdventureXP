@@ -60,6 +60,6 @@ public class Booking {
 
     public String toString()
     {
-        return activity + " " + date + " " + " " + participants;
+        return activity + " " + date + " " + " " + participants + " " + timeOfDay + " " + telefoneNumber;
     }
 }
