@@ -16,6 +16,18 @@
 </select>
 <br>
 
+<label for="time">Choose time of day</label>
+<select name="time" id="time" form="bookingform">
+    <option value="1">08-10</option>
+    <option value="2">10-12</option>
+    <option value="3">12-14</option>
+    <option value="4">14-16</option>
+    <option value="5">16-18</option>
+</select>
+
+
+</select>
+
 <form method="POST" action="/bookings/create" id="bookingform">
 
     <label for="datepicker">Choose date</label>
@@ -24,14 +36,15 @@
                min="2020-10-15" max="2021-03-31">
     <br>
 
-    <label for="time">Choose time of day</label>
-    <input type="time" id="time" name="time"
-           min="08:00" max="18:00" required>
-
     <label for="deltager">Choose amount of participants</label>
         <input type="number" id="deltager" name="participants" min="1" max="20" required>
 
+    <label for="telephone">Write your telefone number</label>
+    <input type="text" id="telephone" name="telephone" required>
+
     <input type="submit" value="Submit"/>
+
+
 
 </form>
 
