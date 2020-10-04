@@ -1,0 +1,21 @@
+CREATE DATABASE advxp ;
+
+create table advxp.Activity
+(
+    Activity_Id int auto_increment
+        primary key,
+    Name varchar(50) collate utf8_general_ci not null,
+    Price double not null,
+    Description text null,
+    Restriction text null
+);
+
+create table advxp.Booking
+(
+    Booking_Id int auto_increment
+        primary key,
+    Tlf varchar(20) not null,
+    Dato datetime null,
+    Bookingtime int not null,
+    FK_Activity int not null
+);

@@ -6,6 +6,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class JDBCActivityRepositoryTests {
 
@@ -30,9 +33,32 @@ public class JDBCActivityRepositoryTests {
     }
 
     @Test
+    void updateTest(){
+        Activity changeActivity = jdbc.readByName("Deathmatch");
+        changeActivity.setRestriction("Boef!");
+        jdbc.update(changeActivity);
+        assertEquals(jdbc.read(changeActivity.getId()).getRestriction(), "Boef!");
+    }
+
+
+    @Test
     void deleteTest(){
 
         assertEquals(jdbc.delete(jdbc.readByName("Deathmatch").getId()), true);
 
+    }
+
+    @Test
+    void readAllTest(){
+        assertEquals(jdbc.create(deathMatch), true);
+        assertEquals(jdbc.create(deathMatch), true);
+        assertEquals(jdbc.create(deathMatch), true);
+
+        List<Activity> testList = jdbc.readAll();
+        assertEquals(testList.size(), 3);
+
+        assertEquals(jdbc.delete(jdbc.readByName("Deathmatch").getId()), true);
+        assertEquals(jdbc.delete(jdbc.readByName("Deathmatch").getId()), true);
+        assertEquals(jdbc.delete(jdbc.readByName("Deathmatch").getId()), true);
     }
 }

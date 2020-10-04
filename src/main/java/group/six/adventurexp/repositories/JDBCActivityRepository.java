@@ -101,7 +101,7 @@ public class JDBCActivityRepository implements IActivityRepository {
         try {
             Connection connection = DBManager.getConnection();
             Statement statement = connection.createStatement();
-            String sql = "SELECT * FROM activity NATURAL JOIN dept";
+            String sql = "SELECT * FROM activity"; // NATURAL JOIN dept";
             ResultSet rs = statement.executeQuery(sql); //rammer jeg stålet på databasen
             int id;
             String name;
@@ -145,7 +145,7 @@ public class JDBCActivityRepository implements IActivityRepository {
         int rowsAffected =0;
         try {
             Connection connection = DBManager.getConnection();
-            String sql = "UPDATE activity SET name=?, price=?, description=?, restriction=? WHERE id=?";
+            String sql = "UPDATE activity SET name=?, price=?, description=?, restriction=? WHERE activity_id=?";
             PreparedStatement statement = connection.prepareStatement(sql);
 
             statement.setString(1, item.getName());
