@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css.css">
+    <title>Booking</title>
+</head>
+<body>
+<div th:replace="fragments/nav.html :: navigation"></div>
+
+<label for="activity" >Choose desired activity</label>
+<select name="activity" id="activity" form="bookingform">
+    <option th:each="activity : ${activities}"
+            th:value="${activity.id}"
+            th:text="${activity.name}"> </option>
+</select>
+<br>
+
+<form method="POST" action="/bookings/create" id="bookingform">
+
+    <label for="datepicker">Choose date</label>
+        <input type="date" id="datepicker" name="booking-date"
+               value="2020-10-15"
+               min="2020-10-15" max="2021-03-31">
+    <br>
+
+    <label for="time">Choose time of day</label>
+    <input type="time" id="time" name="time"
+           min="08:00" max="18:00" required>
+
+    <label for="deltager">Choose amount of participants</label>
+        <input type="number" id="deltager" name="participants" min="1" max="20" required>
+
+    <input type="submit" value="Submit"/>
+
+</form>
+
+
+</body>
+</html>

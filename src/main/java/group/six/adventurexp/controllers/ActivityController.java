@@ -17,13 +17,11 @@ public class ActivityController {
 
    public ActivityController(){activityRepository = new InMemoryActivityRepository(); }
 
-    @GetMapping("/activities")
     public String activities(Model model){
         model.addAttribute("activities", activityRepository.readAll());
         return "activities/activities";}
 
 
-    @GetMapping("activities/createActivity")
     public String newActivity(){return "activities/createActivity";}
 
     @PostMapping("/createActivity")
@@ -34,7 +32,6 @@ public class ActivityController {
     }
 
 
-    @GetMapping("/editActivity")
     public String editActivity(@RequestParam String id, Model model)
     {   // info fra anmodende side uddrages
         int _id = Integer.parseInt(id);
@@ -52,7 +49,6 @@ public class ActivityController {
     }
 
 
-    @GetMapping("/deleteActivity")
     public String delete(@RequestParam String id, Model deleteModel)
     {
         deleteModel.addAttribute("activity", activityRepository.read(Integer.parseInt(id)));

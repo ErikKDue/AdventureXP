@@ -1,21 +1,17 @@
 package group.six.adventurexp.controllers;
 
 import group.six.adventurexp.models.Activity;
-import group.six.adventurexp.repositories.InMemoryActivityRepository;
-import group.six.adventurexp.repositories.interfaces.IActivityRepository;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 @Controller
 public class HomeController {
 
     public HomeController(){}
 
-    @GetMapping("/")
     public String home(){return "index";}
-
-    @GetMapping("/booking")
-    public String booking(){return "booking";}
 
 }
