@@ -29,5 +29,6 @@ public class ActivityTests {
         deathMatch.setRestriction("");
         deathMatch.display();
         //testing console output looks fucking complicated holy shit
+        //not finishing this since it's not gonna be a console-ui application any more
     }
 }
