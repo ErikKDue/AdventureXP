@@ -1,29 +1,50 @@
 package group.six.adventurexp.models;
 
+import group.six.adventurexp.repositories.JDBCActivityRepository;
+
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Booking {
-
+    int id;
     public Activity activity;
-    Date date;
+    LocalDate date;
     public int participants;
     int timeOfDay;
-    String telefoneNumber;
+    String telephoneNumber;
 
-    public Booking(Activity activity, Date date, int participants, int timeOfDay, String telephoneNumber) {
+
+    public Booking(String activity_name, LocalDate date, int participants, int timeOfDay, String telephoneNumber) {
+        this.activity = new JDBCActivityRepository().readByName(activity_name);
+        this.date = date;
+        this.participants = participants;
+        this.timeOfDay = timeOfDay;
+        this.telephoneNumber = telephoneNumber;
+    }
+
+    public Booking(int activity_id, LocalDate date, int participants, int timeOfDay, String telephoneNumber, int booking_id) {
+        this.activity = new JDBCActivityRepository().read(activity_id);
+        this.date = date;
+        this.participants = participants;
+        this.timeOfDay = timeOfDay;
+        this.telephoneNumber = telephoneNumber;
+        this.id = booking_id;
+    }
+
+    public Booking(Activity activity, LocalDate date, int participants, int timeOfDay, String telephoneNumber) {
         this.activity = activity;
         this.date = date;
         this.participants = participants;
         this.timeOfDay = timeOfDay;
-        this.telefoneNumber = telephoneNumber;
+        this.telephoneNumber = telephoneNumber;
     }
 
-    public String getTelefoneNumber() {
-        return telefoneNumber;
+    public String getTelephoneNumber() {
+        return telephoneNumber;
     }
 
-    public void setTelefoneNumber(String telefoneNumber) {
-        this.telefoneNumber = telefoneNumber;
+    public void setTelephoneNumber(String telephoneNumber) {
+        this.telephoneNumber = telephoneNumber;
     }
 
     public int getTimeOfDay() {
@@ -42,11 +63,11 @@ public class Booking {
         this.activity = activity;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
@@ -58,8 +79,12 @@ public class Booking {
         this.participants = participants;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public String toString()
     {
-        return activity + " " + date + " " + " " + participants + " " + timeOfDay + " " + telefoneNumber;
+        return activity + " " + date + " " + " " + participants + " " + timeOfDay + " " + telephoneNumber;
     }
 }
