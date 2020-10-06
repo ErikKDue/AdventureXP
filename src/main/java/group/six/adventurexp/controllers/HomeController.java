@@ -1,10 +1,6 @@
 package group.six.adventurexp.controllers;
 
-import group.six.adventurexp.models.Activity;
-import group.six.adventurexp.repositories.InMemoryActivityRepository;
-import group.six.adventurexp.repositories.interfaces.IActivityRepository;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
