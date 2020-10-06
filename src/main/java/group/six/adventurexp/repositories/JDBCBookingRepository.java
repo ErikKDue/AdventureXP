@@ -127,6 +127,44 @@ public class JDBCBookingRepository implements IBookingRepository {
         }
         return bookings;
     }
+
+
+    public List<Booking> readAllByClient(String inputString){
+        ArrayList<Booking> bookings = new ArrayList<Booking>();
+        try {
+            Connection connection = DBManager.getConnection();
+            //Statement statement = connection.createStatement();
+            String sql = "SELECT * FROM booking WHERE tlf =? ORDER BY Dato"; // NATURAL JOIN dept";*/
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1,inputString);
+
+            ResultSet rs = statement.executeQuery(); //rammer jeg stålet på databasen
+            int b_id;
+            LocalDate date;
+            int actId;
+            int participants;
+            String telephoneNumber;
+            int timeOfDay;
+
+            while (rs.next()) {
+
+                b_id = rs.getInt("booking_id");
+                actId = rs.getInt("FK_Activity");
+                date = rs.getDate("Dato").toLocalDate();
+                participants = rs.getInt("participants");
+                timeOfDay = rs.getInt("bookingtime");
+                telephoneNumber = rs.getString("tlf");
+
+                Booking booking = new Booking(actId, date, participants, timeOfDay, telephoneNumber, b_id);
+                bookings.add(booking);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return bookings;
+    }
+
     @Override
     public boolean update(Booking item) {
         int rowsAffected =0;

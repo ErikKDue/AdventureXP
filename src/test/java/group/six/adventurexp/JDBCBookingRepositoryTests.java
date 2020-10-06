@@ -54,4 +54,29 @@ import java.util.List;
        jdbc2.delete(jdbc2.readByName("Deathmatch").getId());
     }
 
+    @Test
+    void readAllByClientTest(){
+
+       Activity deathMatch = new Activity(2,"Deathmatch", 2999.99,"A no-holds-barred blood sport for the whole family!", "No children under the age of 6.");
+       JDBCActivityRepository jdbc2 = new JDBCActivityRepository();
+       jdbc2.create(deathMatch);
+
+       Booking testBooking= new Booking("Deathmatch", LocalDate.now(), 12, 4, "Eriks Telefonnummer");
+       assertEquals(jdbc1.create(testBooking), true);
+       assertEquals(jdbc1.create(testBooking), true);
+       assertEquals(jdbc1.create(testBooking), true);
+
+       List<Booking> testList = jdbc1.readAllByClient(testBooking.getTelephoneNumber());
+       for (Booking booking:testList
+            ) {assertEquals(testBooking.getTelephoneNumber(), booking.getTelephoneNumber());
+
+       }
+
+       for (Booking booking:testList
+       ) {jdbc1.delete(booking.getId());
+
+       }
+       jdbc2.delete(jdbc2.readByName("Deathmatch").getId());
+    }
+
 }
