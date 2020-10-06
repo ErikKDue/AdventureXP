@@ -16,6 +16,7 @@ create table advxp.Booking
         primary key,
     Tlf varchar(20) not null,
     Dato datetime null,
+    Participants int not null,
     Bookingtime int not null,
     FK_Activity int not null
 );

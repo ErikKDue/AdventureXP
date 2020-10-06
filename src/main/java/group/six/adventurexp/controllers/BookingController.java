@@ -13,6 +13,7 @@ import org.springframework.web.context.request.WebRequest;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -43,7 +44,8 @@ public class BookingController {
 
         int activityid = Integer.parseInt(request.getParameter("activity")) - 1;
         String param2 = request.getParameter("booking-date");
-        Date date = new SimpleDateFormat("yyyy-MM-dd").parse(param2);
+        //Date date = new SimpleDateFormat("yyyy-MM-dd").parse(param2);
+        LocalDate date = LocalDate.parse(param2);//("yyyy-MM-dd").parse(param2);
         int participants = Integer.parseInt(request.getParameter("participants"));
         int timeOfDay = Integer.parseInt(request.getParameter("time"));
         String telephoneNumber = request.getParameter("telephone");
