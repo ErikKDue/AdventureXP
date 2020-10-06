@@ -33,7 +33,7 @@ public class ActivityController {
     public String createActivity(WebRequest request)
     {
         String name = request.getParameter("name");
-        int price = Integer.parseInt(request.getParameter("price"));
+        Double price = Double.parseDouble(request.getParameter("price"));
         String description = request.getParameter("description");
         String restriction = request.getParameter("restriction");
 
@@ -61,7 +61,7 @@ public class ActivityController {
 
         int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
-        int price = Integer.parseInt(request.getParameter("price"));
+        double price = Double.parseDouble(request.getParameter("price"));
         String description = request.getParameter("description");
         String restriction = request.getParameter("restriction");
 
