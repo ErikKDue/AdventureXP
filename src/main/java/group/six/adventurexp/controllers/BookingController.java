@@ -58,8 +58,6 @@ public class BookingController {
 
         Booking booking = new Booking(activityRepository.readAll().get(activityid), date, participants, timeOfDay, telephoneNumber);
 
-        System.out.println(booking);
-
         bookingRepository.create(booking);
 
         return "redirect:/bookings/book";

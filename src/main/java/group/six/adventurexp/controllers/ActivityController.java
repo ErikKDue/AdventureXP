@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.request.WebRequest;
 
 @Controller
 public class ActivityController {
@@ -29,8 +30,16 @@ public class ActivityController {
     public String newActivity(){return "activities/createActivity";}
 
     @PostMapping("/createActivity")
-    public String createActivity(@ModelAttribute Activity activity)
+    public String createActivity(WebRequest request)
     {
+        String name = request.getParameter("name");
+        int price = Integer.parseInt(request.getParameter("price"));
+        String description = request.getParameter("description");
+        String restriction = request.getParameter("restriction");
+
+        Activity activity = new Activity(name, price, description, restriction);
+
+
         activityRepository.create(activity);
         return "redirect:/activities";
     }
