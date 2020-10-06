@@ -57,7 +57,16 @@ public class ActivityController {
     }
 
     @PostMapping("/updateActivity")
-    public String update(@ModelAttribute Activity activity){
+    public String update(WebRequest request){
+
+        int id = Integer.parseInt(request.getParameter("id"));
+        String name = request.getParameter("name");
+        int price = Integer.parseInt(request.getParameter("price"));
+        String description = request.getParameter("description");
+        String restriction = request.getParameter("restriction");
+
+        Activity activity = new Activity(id,name,price,description, restriction);
+
         activityRepository.update(activity);
         return "redirect:/activities";
     }
