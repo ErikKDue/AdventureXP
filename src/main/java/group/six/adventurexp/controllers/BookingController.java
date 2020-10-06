@@ -23,11 +23,6 @@ import java.util.Date;
 @Controller
 public class BookingController {
 
-   ArrayList<Activity> activities = new  ArrayList<>(Arrays.asList(
-            new Activity(1, "GoKart",500, "Kør rundt på vores fede GoKart bane, i vores super hurtige og sjove GoKarts!", "Du skal være 16 år gammel, og mindst 1,50m høj"),
-            new Activity(2, "Paint Ball", 750, "Skyd dine venner i fjæset med maling", "Du skal være 18 år gammel, der er ingen højde begrænsning"),
-            new Activity(3,"Mini Golf", 900, "Bliv frustreret over dine dårlige evner til at spille mini golf, og lad dine aggresioner gå ud over din familie", "Der er ingen krav")));
-
     ArrayList<Booking> bookings = new  ArrayList<>(Arrays.asList(
             new Booking("Go-kart", LocalDate.now(), 2, 1, "12345")));
 
@@ -42,10 +37,6 @@ public class BookingController {
     @GetMapping("bookings/book")
     public String booking(Model model)
     {
-
-        System.out.println(activityRepository.readAll());
-        System.out.println(activities);
-
         model.addAttribute("activities", activityRepository.readAll());
         return "bookings/book";
     }
@@ -60,7 +51,7 @@ public class BookingController {
     @PostMapping("bookings/create")
     public String createBooking(WebRequest request) throws ParseException {
 
-        int activityid = Integer.parseInt(request.getParameter("activity")) - 1;
+        int activityid = Integer.parseInt(request.getParameter("activity"));
         String param2 = request.getParameter("booking-date");
         //Date date = new SimpleDateFormat("yyyy-MM-dd").parse(param2);
         LocalDate date = LocalDate.parse(param2);//("yyyy-MM-dd").parse(param2);
@@ -68,7 +59,10 @@ public class BookingController {
         int timeOfDay = Integer.parseInt(request.getParameter("time"));
         String telephoneNumber = request.getParameter("telephone");
 
-        Booking booking = new Booking(activities.get(activityid), date, participants, timeOfDay, telephoneNumber);
+        Booking booking = new Booking(activityRepository.readAll().get(activityid), date, participants, timeOfDay, telephoneNumber);
+
+        System.out.println(booking);
+
         bookingRepository.create(booking);
 
         return "redirect:/bookings/book";
