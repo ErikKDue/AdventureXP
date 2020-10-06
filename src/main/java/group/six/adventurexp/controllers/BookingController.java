@@ -28,6 +28,9 @@ public class BookingController {
             new Activity(2, "Paint Ball", 750, "Skyd dine venner i fjæset med maling", "Du skal være 18 år gammel, der er ingen højde begrænsning"),
             new Activity(3,"Mini Golf", 900, "Bliv frustreret over dine dårlige evner til at spille mini golf, og lad dine aggresioner gå ud over din familie", "Der er ingen krav")));
 
+    ArrayList<Booking> bookings = new  ArrayList<>(Arrays.asList(
+            new Booking("Go-kart", LocalDate.now(), 2, 1, "12345")));
+
     private IBookingRepository bookingRepository;
 
     public BookingController(){bookingRepository = new JDBCBookingRepository(); }
@@ -38,6 +41,13 @@ public class BookingController {
 
         model.addAttribute("activities", activities);
         return "bookings/book";
+    }
+
+    @GetMapping("bookings/booking")
+    public String bookingList(Model model)
+    {
+        model.addAttribute("bookings", bookingRepository.readAll());
+        return "bookings/booking";
     }
 
     @PostMapping("bookings/create")

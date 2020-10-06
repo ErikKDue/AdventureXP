@@ -100,7 +100,7 @@ public class JDBCBookingRepository implements IBookingRepository {
         try {
             Connection connection = DBManager.getConnection();
             Statement statement = connection.createStatement();
-            String sql = "SELECT * FROM booking"; // NATURAL JOIN dept";
+            String sql = "SELECT * FROM booking ORDER BY Dato"; // NATURAL JOIN dept";
             ResultSet rs = statement.executeQuery(sql); //rammer jeg stålet på databasen
             int b_id;
             LocalDate date;
