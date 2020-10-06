@@ -11,7 +11,7 @@
 <label for="activity" >Choose desired activity</label>
 <select name="activity" id="activity" form="bookingform">
     <option th:each="activity : ${activities}"
-            th:value="${activity.id}"
+            th:value="${activity.name}"
             th:text="${activity.name}"> </option>
 </select>
 <br>

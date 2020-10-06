@@ -17,6 +17,13 @@ public class Activity {
         this.restriction = restriction;
     }
 
+    public Activity(String name, double price, String description, String restriction) {
+        this.name = name;
+        this.price = price;
+        this.description = description;
+        this.restriction = restriction;
+    }
+
     public void setId(int id){ this.id = id;}
 
     public int getId(){return id;}

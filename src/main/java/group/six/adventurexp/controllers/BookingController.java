@@ -32,14 +32,21 @@ public class BookingController {
             new Booking("Go-kart", LocalDate.now(), 2, 1, "12345")));
 
     private IBookingRepository bookingRepository;
+    private IActivityRepository activityRepository;
 
-    public BookingController(){bookingRepository = new JDBCBookingRepository(); }
+    public BookingController(){bookingRepository = new JDBCBookingRepository();
+    activityRepository = new JDBCActivityRepository();
+
+    }
 
     @GetMapping("bookings/book")
     public String booking(Model model)
     {
 
-        model.addAttribute("activities", activities);
+        System.out.println(activityRepository.readAll());
+        System.out.println(activities);
+
+        model.addAttribute("activities", activityRepository.readAll());
         return "bookings/book";
     }
 
@@ -53,8 +60,6 @@ public class BookingController {
     @PostMapping("bookings/create")
     public String createBooking(WebRequest request) throws ParseException {
 
-        ArrayList<Booking> bookings = new ArrayList<>();
-
         int activityid = Integer.parseInt(request.getParameter("activity")) - 1;
         String param2 = request.getParameter("booking-date");
         //Date date = new SimpleDateFormat("yyyy-MM-dd").parse(param2);
@@ -64,12 +69,7 @@ public class BookingController {
         String telephoneNumber = request.getParameter("telephone");
 
         Booking booking = new Booking(activities.get(activityid), date, participants, timeOfDay, telephoneNumber);
-        bookings.add(booking);
-
-        for (int i = 0; i < bookings.size(); i++)
-        {
-            System.out.println(bookings.get(i).toString());
-        }
+        bookingRepository.create(booking);
 
         return "redirect:/bookings/book";
     }
