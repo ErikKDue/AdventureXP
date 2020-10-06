@@ -23,9 +23,6 @@ import java.util.Date;
 @Controller
 public class BookingController {
 
-    ArrayList<Booking> bookings = new  ArrayList<>(Arrays.asList(
-            new Booking("Go-kart", LocalDate.now(), 2, 1, "12345")));
-
     private IBookingRepository bookingRepository;
     private IActivityRepository activityRepository;
 
