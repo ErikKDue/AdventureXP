@@ -19,6 +19,7 @@ import java.util.List;
 * restriction
 * */
 public class JDBCActivityRepository implements IActivityRepository {
+
     @Override
     public boolean create(Activity newItem)/*throws SQLException*/{
         int rowsAffected =0;

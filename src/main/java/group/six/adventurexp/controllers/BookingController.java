@@ -3,6 +3,8 @@ package group.six.adventurexp.controllers;
 
 import group.six.adventurexp.models.Activity;
 import group.six.adventurexp.models.Booking;
+import group.six.adventurexp.repositories.JDBCActivityRepository;
+import group.six.adventurexp.repositories.interfaces.IActivityRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,17 +20,19 @@ import java.util.Date;
 @Controller
 public class BookingController {
 
-    ArrayList<Activity> activities = new  ArrayList<>(Arrays.asList(
+   ArrayList<Activity> activities = new  ArrayList<>(Arrays.asList(
             new Activity(1, "GoKart",500, "Kør rundt på vores fede GoKart bane, i vores super hurtige og sjove GoKarts!", "Du skal være 16 år gammel, og mindst 1,50m høj"),
             new Activity(2, "Paint Ball", 750, "Skyd dine venner i fjæset med maling", "Du skal være 18 år gammel, der er ingen højde begrænsning"),
             new Activity(3,"Mini Golf", 900, "Bliv frustreret over dine dårlige evner til at spille mini golf, og lad dine aggresioner gå ud over din familie", "Der er ingen krav")));
 
+    private IBookingRepository bookingRepository;
 
+    public BookingController(){bookingRepository = new JDBCBookingRepository(); }
 
     @GetMapping("bookings/book")
     public String booking(Model model)
     {
-        model.addAttribute("activities", activities);
+        model.addAttribute("activities", Activity);
         return "bookings/book";
     }
 

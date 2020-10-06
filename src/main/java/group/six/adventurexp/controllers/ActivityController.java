@@ -2,6 +2,7 @@ package group.six.adventurexp.controllers;
 
 import group.six.adventurexp.models.Activity;
 import group.six.adventurexp.repositories.InMemoryActivityRepository;
+import group.six.adventurexp.repositories.JDBCActivityRepository;
 import group.six.adventurexp.repositories.interfaces.IActivityRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +16,7 @@ public class ActivityController {
 
     private IActivityRepository activityRepository;
 
-   public ActivityController(){activityRepository = new InMemoryActivityRepository(); }
+   public ActivityController(){activityRepository = new JDBCActivityRepository(); }
 
     @GetMapping("/activities")
     public String activities(Model model){
