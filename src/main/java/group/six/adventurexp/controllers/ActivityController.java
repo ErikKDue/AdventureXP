@@ -19,10 +19,11 @@ public class ActivityController {
    public ActivityController(){activityRepository = new JDBCActivityRepository(); }
 
     @GetMapping("/activities")
-    public String activities(Model model){
+    public String activities(Model model)
+    {
         model.addAttribute("activities", activityRepository.readAll());
-        return "activities/activities";}
-
+        return "activities/activities";
+   }
 
     @GetMapping("activities/createActivity")
     public String newActivity(){return "activities/createActivity";}

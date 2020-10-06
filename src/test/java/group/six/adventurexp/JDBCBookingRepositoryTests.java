@@ -14,7 +14,7 @@ import java.util.List;
 
 
 
-public class JDBCBookingRespositoryTests {
+ class JDBCBookingRespositoryTests {
     JDBCBookingRepository jdbc1 = new JDBCBookingRepository();
 
     @Test

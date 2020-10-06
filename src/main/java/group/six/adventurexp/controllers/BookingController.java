@@ -4,7 +4,9 @@ package group.six.adventurexp.controllers;
 import group.six.adventurexp.models.Activity;
 import group.six.adventurexp.models.Booking;
 import group.six.adventurexp.repositories.JDBCActivityRepository;
+import group.six.adventurexp.repositories.JDBCBookingRepository;
 import group.six.adventurexp.repositories.interfaces.IActivityRepository;
+import group.six.adventurexp.repositories.interfaces.IBookingRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,7 +35,8 @@ public class BookingController {
     @GetMapping("bookings/book")
     public String booking(Model model)
     {
-        model.addAttribute("activities", Activity);
+
+        model.addAttribute("activities", activities);
         return "bookings/book";
     }
 
