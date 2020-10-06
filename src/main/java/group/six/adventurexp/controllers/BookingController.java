@@ -56,7 +56,7 @@ public class BookingController {
         int timeOfDay = Integer.parseInt(request.getParameter("time"));
         String telephoneNumber = request.getParameter("telephone");
 
-        Booking booking = new Booking(activityRepository.readAll().get(activityid), date, participants, timeOfDay, telephoneNumber);
+        Booking booking = new Booking(activityRepository.read(activityid), date, participants, timeOfDay, telephoneNumber);
 
         bookingRepository.create(booking);
 
