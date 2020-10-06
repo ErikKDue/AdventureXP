@@ -27,7 +27,7 @@ public class BookingController {
     private IActivityRepository activityRepository;
 
     public BookingController(){bookingRepository = new JDBCBookingRepository();
-    activityRepository = new JDBCActivityRepository();
+        activityRepository = new JDBCActivityRepository();
 
     }
 
@@ -48,7 +48,7 @@ public class BookingController {
     @PostMapping("bookings/create")
     public String createBooking(WebRequest request) throws ParseException {
 
-        int activityid = Integer.parseInt(request.getParameter("activity"));
+        int activityid = Integer.parseInt(request.getParameter("activity")) - 1;
         String param2 = request.getParameter("booking-date");
         //Date date = new SimpleDateFormat("yyyy-MM-dd").parse(param2);
         LocalDate date = LocalDate.parse(param2);//("yyyy-MM-dd").parse(param2);

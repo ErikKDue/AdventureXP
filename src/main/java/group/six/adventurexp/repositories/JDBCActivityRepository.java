@@ -127,7 +127,7 @@ public class JDBCActivityRepository implements IActivityRepository {
 
                 //Employee emp = new Employee(empno, eName, job, hireDate, sal);//kan man spare ved at bruge getters og setter i stedet?
 
-               // dept = dm.load(rs);
+                // dept = dm.load(rs);
                 Activity act = new Activity(id, name, price, description, restriction);
                 activities.add(act);
                 //System.out.println(empno);

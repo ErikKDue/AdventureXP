@@ -24,16 +24,14 @@
         <td th:text="${booking.timeOfDay}"></td>
         <td th:text="${booking.activity.name}"></td>
 
-<!--
         <td>
-            <a th:href="@{/editActivity(id=${activity.id})}"><button>Edit</button></a>
-            <a th:href="@{/deleteActivity(id=${activity.id})}"><button>Delete</button></a>
+            <a th:href="@{/editBooking(id=${booking.id})}"><button>Edit</button></a>
+            <a th:href="@{/deleteBooking(id=${booking.id})}"><button>Delete</button></a>
         </td>
--->
     </tr>
 </table>
 <!--
-<a href="/activities/createActivity"><button>Create New Activity</button></a>
+<a href="/activities/createActivity"><button>Create New Booking</button></a>
 -->
 </body>
 </html>
