@@ -14,7 +14,7 @@ import java.util.List;
 
 
 
- class JDBCBookingRespositoryTests {
+ public class JDBCBookingRepositoryTests {
     JDBCBookingRepository jdbc1 = new JDBCBookingRepository();
 
     @Test
@@ -39,6 +39,19 @@ import java.util.List;
     assertNotEquals(readBooking.getParticipants(), testBooking.getParticipants());
 
     assertEquals(    jdbc1.delete(readBooking.getId()), true);
-    jdbc2.delete(jdbc2.readByName("Deathmatch").getId());
+
+    List<Booking> Danny = jdbc1.readAll();
+    jdbc1.create(testBooking);
+    jdbc1.create(testBooking);
+    jdbc1.create(testBooking);
+    List<Booking> Donny = jdbc1.readAll();
+    assertEquals(Danny.size()-Donny.size(), -3);
+
+
+       for (Booking booking: Donny
+            ) {    jdbc1.delete(jdbc1.readByClient(booking.getTelephoneNumber()).getId()); }
+
+       jdbc2.delete(jdbc2.readByName("Deathmatch").getId());
     }
+
 }
